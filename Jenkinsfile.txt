@@ -17,7 +17,7 @@ pipeline {
     }
     post {
         always{
-            sh'python tims.py -results_xml ubuntu@54.184.4.119:/home/ubuntu/navneet/sample_report.xml --show-log -l tims_log -folderid Tps4528779f'
+            sh'python tims.py -results_xml ubuntu@54.184.4.119:/home/ubuntu/navneet/sample_report.xml --show-log -l tims_log -folder_id Tps4528779f'
         }
     }
 }
