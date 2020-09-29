@@ -10,7 +10,7 @@ pipeline {
                     sh 'echo "printing the xml file"'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git init'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git add /home/ubuntu/sample_report.xml'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git commit --amend'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git commit --amend -m "the"'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git remote add origin https://github.com/neerajgarg/my-project.git'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git push -u origin master'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 cat /home/ubuntu/navneet/sample_report.xml'
