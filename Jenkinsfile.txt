@@ -13,7 +13,7 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git commit --amend -m "the"'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git remote add origin https://github.com/neerajgarg/my-project.git'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git push -u origin master'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 cat /home/ubuntu/navneet/sample_report.xml'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 cat /home/ubuntu/sample_report.xml'
                     
                     
                 }
@@ -23,7 +23,7 @@ pipeline {
     post {
         always{
             
-                sh ' python tims.py -results_xml ubuntu@54.184.4.119:/home/ubuntu/navneet/sample_report.xml --show-log -l tims_log -folder_id Tps4528779f'
+                sh ' python tims.py -results_xml sample_report.xml --show-log -l tims_log -folder_id Tps4528779f'
         }
     }
 }
