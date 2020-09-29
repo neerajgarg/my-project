@@ -9,7 +9,7 @@ pipeline {
                     sh 'scp -r requirements.txt ubuntu@54.184.4.119:/home/ubuntu/navneet/'
                     sh 'echo "printing the xml file"'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git init'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git add /home/ubuntu/navneet/sample_report.xml'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git add /home/ubuntu/sample_report.xml'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git commit -m "adding the xml file"'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git push -u origin master'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 cat /home/ubuntu/navneet/sample_report.xml'
