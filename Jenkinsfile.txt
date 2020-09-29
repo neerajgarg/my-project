@@ -17,7 +17,8 @@ pipeline {
     }
     post {
         always{
+        sshagent(credentials : ['78058c98-3b9d-4d81-8bc5-e50b40f9072e']) {
             sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 python tims.py -results_xml /home/ubuntu/navneet/sample_report.xml --show-log -l tims_log -folder_id Tps4528779f'
         }
-    }
+    }}
 }
