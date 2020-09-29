@@ -3,17 +3,17 @@ pipeline {
     stages {
         stage ('Deploy') {
             steps{
-                sh ' pwd '
+                
                 sshagent(credentials : ['78058c98-3b9d-4d81-8bc5-e50b40f9072e']) {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 uptime'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 ls -ltr'
                     sh 'scp -r requirements.txt ubuntu@54.184.4.119:/home/ubuntu/navneet/'
                     sh 'echo "printing the xml file"'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git init'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git add /home/ubuntu/sample_report.xml'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git commit --amend -m "the"'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git push https://github.com/neerajgarg/my-project.git master'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 cat /home/ubuntu/sample_report.xml'
+                    #sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git init'
+                    #sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git add /home/ubuntu/sample_report.xml'
+                    #sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git commit --amend -m "the"'
+                    #sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 git push https://github.com/neerajgarg/my-project.git master'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 cp /home/ubuntu/sample_report.xml .'
                     
                     
                 }
