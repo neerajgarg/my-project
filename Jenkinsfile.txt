@@ -5,7 +5,7 @@ pipeline {
             steps{
                 
                 sshagent(credentials : ['78058c98-3b9d-4d81-8bc5-e50b40f9072e']) {
-                    sh ' pwd '
+                    sh ' ls-lrt $pwd '
                      
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 uptime'
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 ls -ltr'
