@@ -17,7 +17,7 @@ pipeline {
     post {
         success{
 
-            sh ' python tims.py -results_xml results.xml --show-log -l tims_log -folder_id Tps4528779f'
+            sh ' python tims.py -results_xml results.xml --show-log -l tims_log -folder_id $folder_id'
             }
          }
     
