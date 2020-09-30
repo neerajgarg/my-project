@@ -5,10 +5,8 @@ pipeline {
             steps{
                 
                 sshagent(credentials : ['78058c98-3b9d-4d81-8bc5-e50b40f9072e']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 uptime'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 ls -ltr'
-                    sh 'scp requirements.txt ubuntu@54.184.4.119:/home/ubuntu/navneet/'
-                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 python /home/ubuntu/navneet/image-validation/image_validation.py --sdavc --show-log -az $az -imageversion $imageversion -build_type $build_type -cloud_type $cloud_type -l /home/ubuntu/navneet/image-validation/validation_aws_log -region $region -vorch $vorch'
+                    sh 'scp image_validation.py ubuntu@54.184.4.119:/home/ubuntu'
+                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.184.4.119 python /home/ubuntu/image_validation.py --sdavc --show-log -az $az -imageversion $imageversion -build_type $build_type -cloud_type $cloud_type -l /home/ubuntu/navneet/image-validation/validation_aws_log -region $region -vorch $vorch'
                     sh 'scp ubuntu@54.184.4.119:/home/ubuntu/navneet/image-validation/results.xml results.xml'  
                 }
             }
